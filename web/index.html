@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d19">
+  <meta name="description" content="TechValorPK SchoolOS — a modern school operations workspace concept.">
+  <title>SchoolOS — TechValorPK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js",
+        "three/webgpu": "https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.webgpu.js",
+        "three/tsl": "https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.tsl.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="boot-screen" id="bootScreen" aria-label="Loading SchoolOS">
+    <div class="boot-orbit orbit-a"></div><div class="boot-orbit orbit-b"></div>
+    <div class="boot-center">
+      <div class="brand-emblem boot-emblem"><span>TV</span><i></i></div>
+      <div class="boot-kicker">TECHVALORPK PRESENTS</div>
+      <div class="boot-title">School<span>OS</span></div>
+      <div class="boot-byline">MADE WITH VISION BY <b>TECHVALORPK</b></div>
+      <div class="boot-terminal"><span class="terminal-prompt">&gt;</span><span id="bootLine">initializing school systems...</span><span class="terminal-caret">▋</span></div>
+      <div class="boot-progress"><span id="bootProgress"></span></div>
+      <div class="boot-meta"><span id="bootPercent">00%</span><span>3D EXPERIENCE / BUILD 2027</span></div>
+    </div>
+    <div class="boot-bottom">A NEW PERSPECTIVE ON SCHOOL MANAGEMENT <span>●</span> SECURE DEMO ENVIRONMENT</div>
+  </div>
+
+  <div class="app-shell" id="appShell" aria-hidden="true">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-emblem"><span>TV</span><i></i></div>
+        <div><strong>TechValorPK</strong><small>SCHOOL<span>OS</span></small></div>
+        <button class="icon-button sidebar-close" id="sidebarClose" aria-label="Close menu">×</button>
+      </div>
+      <div class="workspace-switcher">
+        <div class="school-avatar">N</div>
+        <div class="workspace-copy"><strong>Northstar Academy</strong><small>MAIN CAMPUS <span class="status-dot"></span></small></div>
+        <span class="switch-chevron">⌄</span>
+      </div>
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="dashboard"><span class="nav-icon">⌂</span><span>Overview</span><kbd>G O</kbd></button>
+        <button class="nav-item" data-view="students"><span class="nav-icon">♙</span><span>Students</span><span class="nav-count">1,284</span></button>
+        <button class="nav-item" data-view="staff"><span class="nav-icon">♧</span><span>Faculty & staff</span></button>
+        <button class="nav-item" data-view="classes"><span class="nav-icon">▦</span><span>Classes & subjects</span></button>
+        <button class="nav-item" data-view="attendance"><span class="nav-icon">◷</span><span>Attendance</span><span class="nav-badge">Live</span></button>
+        <button class="nav-item" data-view="exams"><span class="nav-icon">✧</span><span>Examinations</span></button>
+        <button class="nav-item" data-view="fees"><span class="nav-icon">＄</span><span>Fees & finance</span></button>
+        <button class="nav-item" data-view="library"><span class="nav-icon">▤</span><span>Library</span></button>
+        <button class="nav-item" data-view="transport"><span class="nav-icon">⌁</span><span>Transport</span></button>
+      </nav>
+      <div class="nav-label nav-label-spaced">INSIGHTS</div>
+      <nav class="primary-nav" aria-label="Insights navigation">
+        <button class="nav-item" data-view="analytics"><span class="nav-icon">▥</span><span>Analytics & reports</span></button>
+        <button class="nav-item" data-view="calendar"><span class="nav-icon">▦</span><span>School calendar</span></button>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-help">
+        <div class="help-orb">✦</div>
+        <strong>Need a hand?</strong>
+        <p>Explore the workspace preview or contact your system administrator.</p>
+        <button id="helpButton">Open help centre <span>↗</span></button>
+      </div>
+      <div class="sidebar-user">
+        <div class="user-avatar">AD</div>
+        <div class="user-copy"><strong>Alex Morgan</strong><small>SUPER ADMIN</small></div>
+        <button class="icon-button" id="profileMenu" aria-label="Profile menu">•••</button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-button mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+          <div class="breadcrumb"><span>Northstar Academy</span><b>/</b><strong id="breadcrumbCurrent">Overview</strong></div>
+        </div>
+        <div class="topbar-actions">
+          <div class="system-status"><span class="status-dot"></span> All systems operational</div>
+          <button class="search-trigger" id="searchTrigger"><span>⌕</span> Search anything... <kbd>⌘ K</kbd></button>
+          <button class="icon-button notification-button" id="notificationButton" aria-label="Notifications">♧<i></i></button>
+          <button class="icon-button theme-toggle" id="themeToggle" aria-label="Toggle theme">☼</button>
+          <div class="topbar-avatar">AM</div>
+        </div>
+      </header>
+
+      <div class="content-wrap">
+        <section class="view active-view" id="view-dashboard" aria-labelledby="pageTitle">
+          <div class="page-heading">
+            <div><div class="eyebrow"><span class="eyebrow-line"></span> WEDNESDAY, 19 NOVEMBER 2026 <span class="live-chip"><i></i> LIVE OVERVIEW</span></div><h1 id="pageTitle">Good morning, Alex <span class="wave">✦</span></h1><p class="page-subtitle">Here’s what’s happening across your school today.</p></div>
+            <div class="heading-actions"><button class="button button-ghost" id="exportOverview">↧ <span>Export report</span></button><button class="button button-primary" id="addStudentTop">＋ Add student</button></div>
+          </div>
+
+          <section class="hero-panel">
+            <div class="hero-copy">
+              <div class="hero-overline"><span class="hero-overline-dot"></span> YOUR CAMPUS, IN A NEW DIMENSION</div>
+              <h2>Every detail.<br><em>One beautiful</em> overview.</h2>
+              <p>Bring students, faculty, learning and operations together in one intelligent workspace.</p>
+              <div class="hero-buttons"><button class="button button-light" data-go="analytics">Explore insights <span>↗</span></button><span class="hero-caption"><span class="mini-pulse"></span> Campus activity is up to date</span></div>
+            </div>
+            <div class="hero-visual" id="heroVisual">
+              <canvas id="campusCanvas" aria-label="Animated 3D school campus illustration"></canvas>
+              <div class="hero-visual-label"><span class="visual-label-icon">◈</span><span><b>Northstar Campus</b><small>3D CAMPUS VIEW</small></span><i>↗</i></div>
+              <div class="floating-chip chip-students"><span>♙</span><b>1,284</b><small>Students</small></div>
+              <div class="floating-chip chip-attendance"><span class="chip-check">✓</span><b>96.8%</b><small>Attendance</small></div>
+              <div class="visual-glow"></div>
+            </div>
+            <div class="hero-bottom-glow"></div>
+          </section>
+
+          <div class="section-heading metrics-heading"><div><div class="section-kicker">CAMPUS PULSE</div><h3>School at a glance</h3></div><button class="text-action" data-go="analytics">View all analytics <span>→</span></button></div>
+          <section class="metrics-grid" aria-label="School summary metrics">
+            <article class="metric-card metric-violet tilt-card"><div class="metric-top"><div class="metric-icon">♙</div><span class="metric-trend positive">↗ 8.4%</span></div><div class="metric-label">Total students</div><div class="metric-value">1,284</div><div class="metric-foot"><span>vs. last term</span><div class="sparkline spark-violet"><i style="--h:34%"></i><i style="--h:48%"></i><i style="--h:42%"></i><i style="--h:60%"></i><i style="--h:55%"></i><i style="--h:78%"></i><i style="--h:92%"></i></div></div></article>
+            <article class="metric-card metric-cyan tilt-card"><div class="metric-top"><div class="metric-icon">◷</div><span class="metric-trend positive">↗ 2.1%</span></div><div class="metric-label">Attendance today</div><div class="metric-value">96.8<span class="metric-unit">%</span></div><div class="metric-foot"><span>1,243 present today</span><div class="sparkline spark-cyan"><i style="--h:44%"></i><i style="--h:55%"></i><i style="--h:49%"></i><i style="--h:70%"></i><i style="--h:61%"></i><i style="--h:85%"></i><i style="--h:90%"></i></div></div></article>
+            <article class="metric-card metric-blue tilt-card"><div class="metric-top"><div class="metric-icon">♧</div><span class="metric-trend neutral">Stable</span></div><div class="metric-label">Faculty & staff</div><div class="metric-value">86</div><div class="metric-foot"><span>78 teaching · 8 admin</span><div class="sparkline spark-blue"><i style="--h:66%"></i><i style="--h:60%"></i><i style="--h:72%"></i><i style="--h:69%"></i><i style="--h:78%"></i><i style="--h:77%"></i><i style="--h:82%"></i></div></div></article>
+            <article class="metric-card metric-amber tilt-card"><div class="metric-top"><div class="metric-icon">＄</div><span class="metric-trend positive">↗ 12.6%</span></div><div class="metric-label">Fee collection</div><div class="metric-value">PKR 4.8<span class="metric-unit">M</span></div><div class="metric-foot"><span>82% of monthly target</span><div class="sparkline spark-amber"><i style="--h:25%"></i><i style="--h:40%"></i><i style="--h:37%"></i><i style="--h:53%"></i><i style="--h:62%"></i><i style="--h:75%"></i><i style="--h:88%"></i></div></div></article>
+          </section>
+
+          <section class="dashboard-grid">
+            <article class="panel attendance-panel">
+              <div class="panel-heading"><div><div class="section-kicker">CAMPUS PERFORMANCE</div><h3>Attendance overview</h3><p>Daily attendance across the current week</p></div><button class="select-button" id="attendancePeriod">This week <span>⌄</span></button></div>
+              <div class="chart-legend"><span><i class="legend-dot legend-present"></i> Present</span><span><i class="legend-dot legend-absent"></i> Absent</span><span class="chart-total">Average <b>96.8%</b></span></div>
+              <div class="bar-chart" role="img" aria-label="Weekly attendance chart: Monday 93 percent, Tuesday 97 percent, Wednesday 96 percent, Thursday 98 percent, Friday 95 percent">
+                <div class="chart-y-labels"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span></div>
+                <div class="chart-plot"><div class="chart-gridlines"><i></i><i></i><i></i><i></i><i></i></div><div class="bar-group"><div class="bar-stack"><i class="bar-present" style="height:93%"></i><i class="bar-absent" style="height:7%"></i></div><span>Mon</span></div><div class="bar-group"><div class="bar-stack"><i class="bar-present" style="height:97%"></i><i class="bar-absent" style="height:3%"></i></div><span>Tue</span></div><div class="bar-group is-today"><div class="bar-stack"><i class="bar-present" style="height:96%"></i><i class="bar-absent" style="height:4%"></i></div><span>Wed</span></div><div class="bar-group"><div class="bar-stack"><i class="bar-present" style="height:98%"></i><i class="bar-absent" style="height:2%"></i></div><span>Thu</span></div><div class="bar-group"><div class="bar-stack"><i class="bar-present" style="height:95%"></i><i class="bar-absent" style="height:5%"></i></div><span>Fri</span></div></div>
+              </div>
+            </article>
+            <article class="panel events-panel">
+              <div class="panel-heading"><div><div class="section-kicker">UP NEXT</div><h3>Campus schedule</h3><p>What’s on the calendar</p></div><button class="icon-button small-icon" aria-label="More schedule options">•••</button></div>
+              <div class="event-list">
+                <div class="event-item"><div class="event-date"><b>19</b><small>NOV</small></div><div class="event-details"><strong>Science exhibition</strong><small>Auditorium · Grades 8–10</small></div><span class="event-time">10:30 AM</span></div>
+                <div class="event-item"><div class="event-date event-date-blue"><b>20</b><small>NOV</small></div><div class="event-details"><strong>Parent-teacher meeting</strong><small>Conference hall · All grades</small></div><span class="event-time">09:00 AM</span></div>
+                <div class="event-item"><div class="event-date event-date-amber"><b>22</b><small>NOV</small></div><div class="event-details"><strong>Mid-term assessments</strong><small>Exam blocks · Grades 6–12</small></div><span class="event-time">All day</span></div>
+              </div>
+              <button class="panel-footer-link" data-go="calendar">Open school calendar <span>→</span></button>
+            </article>
+          </section>
+
+          <section class="dashboard-grid lower-grid">
+            <article class="panel activity-panel">
+              <div class="panel-heading"><div><div class="section-kicker">LIVE WORKSPACE</div><h3>Recent activity</h3><p>Latest updates from your school</p></div><button class="text-action" data-go="analytics">View activity <span>→</span></button></div>
+              <div class="activity-table"><div class="activity-row"><div class="activity-avatar avatar-green">SK</div><div class="activity-text"><strong>Sarah Khan <span>added a new student</span></strong><small>Student #ST-2086 · Grade 7 - Blue</small></div><time>2 min ago</time><span class="activity-status status-complete">Completed</span></div><div class="activity-row"><div class="activity-avatar avatar-violet">AM</div><div class="activity-text"><strong>Alex Morgan <span>published exam results</span></strong><small>Mid-term assessment · Grade 10</small></div><time>18 min ago</time><span class="activity-status status-complete">Completed</span></div><div class="activity-row"><div class="activity-avatar avatar-amber">RJ</div><div class="activity-text"><strong>Robert James <span>recorded attendance</span></strong><small>Class 9 - A · 32 of 34 present</small></div><time>42 min ago</time><span class="activity-status status-pending">In review</span></div></div>
+            </article>
+            <article class="panel quick-panel"><div class="panel-heading"><div><div class="section-kicker">SHORTCUTS</div><h3>Quick actions</h3><p>Make things happen faster</p></div></div><div class="quick-actions"><button class="quick-action" data-action="student"><span class="quick-icon quick-purple">＋</span><span><b>New student</b><small>Register a learner</small></span><i>↗</i></button><button class="quick-action" data-go="attendance"><span class="quick-icon quick-cyan">◷</span><span><b>Take attendance</b><small>Mark class presence</small></span><i>↗</i></button><button class="quick-action" data-go="fees"><span class="quick-icon quick-amber">＄</span><span><b>Record a payment</b><small>Update fee records</small></span><i>↗</i></button></div></article>
+          </section>
+          <footer class="page-footer"><span>© 2026 TechValorPK · SchoolOS concept preview</span><span><i class="status-dot"></i> Demo data · No live school database connected</span></footer>
+        </section>
+
+        <section class="view" id="view-module" aria-live="polite">
+          <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> SCHOOL OPERATIONS</div><h1 id="moduleTitle">Students</h1><p class="page-subtitle" id="moduleSubtitle">Manage your school's records in one place.</p></div><div class="heading-actions"><button class="button button-ghost" id="moduleExport">↧ <span>Export</span></button><button class="button button-primary" id="moduleAdd">＋ Add record</button></div></div>
+          <div class="module-summary" id="moduleSummary"></div>
+          <article class="panel module-panel"><div class="module-toolbar"><div class="module-search"><span>⌕</span><input id="moduleSearch" type="search" placeholder="Search records..." aria-label="Search records"></div><div class="module-filters"><button class="select-button">All records <span>⌄</span></button><button class="select-button">Last 30 days <span>⌄</span></button></div></div><div class="table-wrap"><table class="data-table"><thead id="moduleHead"></thead><tbody id="moduleBody"></tbody></table></div><div class="table-footer"><span id="tableCount">Showing demo records</span><div class="pagination"><button disabled>←</button><button class="current-page">1</button><button>2</button><button>3</button><button>→</button></div></div></article>
+          <footer class="page-footer"><span>© 2026 TechValorPK · SchoolOS concept preview</span><span><i class="status-dot"></i> Demo data · No live school database connected</span></footer>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header"><div><div class="section-kicker">SCHOOLOS WORKSPACE</div><h2 id="modalTitle">Add a student</h2><p id="modalDescription">Create a new student record in this local demo.</p></div><button class="icon-button" id="modalClose" aria-label="Close dialog">×</button></div>
+      <form id="studentForm" class="modal-form"><label>Full name<input name="name" required minlength="2" placeholder="e.g. Ayesha Malik"></label><div class="form-row"><label>Student ID<input name="id" required placeholder="ST-2087"></label><label>Grade<select name="grade"><option>Grade 6</option><option>Grade 7</option><option>Grade 8</option><option>Grade 9</option><option>Grade 10</option><option>Grade 11</option><option>Grade 12</option></select></label></div><div class="form-row"><label>Section<select name="section"><option>Blue</option><option>Gold</option><option>Silver</option><option>Emerald</option></select></label><label>Status<select name="status"><option>Active</option><option>Pending</option></select></label></div><div class="modal-actions"><button type="button" class="button button-ghost" id="modalCancel">Cancel</button><button type="submit" class="button button-primary">Save student <span>→</span></button></div></form>
+    </section>
+  </div>
+  <div class="toast-stack" id="toastStack" aria-live="polite"></div>
+  <div class="command-backdrop" id="commandBackdrop" hidden><div class="command-box"><div class="command-search"><span>⌕</span><input id="commandInput" placeholder="Jump to a page or action..." autocomplete="off"><kbd>ESC</kbd></div><div class="command-label">SUGGESTED</div><div id="commandResults"></div><div class="command-footer"><span>↑↓ Navigate</span><span>↵ Select</span><span>Esc Close</span></div></div></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
