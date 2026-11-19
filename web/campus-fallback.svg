@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" fill="none">
+<defs>
+<linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d7e6ff"/><stop offset=".48" stop-color="#7375c9"/><stop offset="1" stop-color="#253766"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#8f8bff" stop-opacity=".95"/><stop offset=".45" stop-color="#253e77"/><stop offset="1" stop-color="#101d3c"/></linearGradient>
+<linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b4fbff"/><stop offset=".5" stop-color="#4de3f0"/><stop offset="1" stop-color="#766bff"/></linearGradient>
+<linearGradient id="platform" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#6172bb"/><stop offset=".3" stop-color="#263b78"/><stop offset="1" stop-color="#09142d"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#45ddec" stop-opacity=".32"/><stop offset="1" stop-color="#5c5bff" stop-opacity="0"/></radialGradient>
+<filter id="blur"><feGaussianBlur stdDeviation="16"/></filter><filter id="soft"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+<ellipse cx="520" cy="430" rx="330" ry="90" fill="url(#glow)" filter="url(#blur)"/>
+<g opacity=".62" stroke="#6f82ff" stroke-width="2"><ellipse cx="520" cy="235" rx="330" ry="118" transform="rotate(-13 520 235)"/><ellipse cx="520" cy="235" rx="280" ry="94" transform="rotate(17 520 235)" stroke="#4ce1ef"/><path d="M182 280C260 112 707 54 842 220" stroke="#b7a3ff" stroke-dasharray="4 11"/></g>
+<circle cx="602" cy="100" r="54" stroke="#70e8ff" stroke-opacity=".64"/><circle cx="602" cy="100" r="43" stroke="#a99aff" stroke-opacity=".48" stroke-dasharray="4 5"/><circle cx="602" cy="100" r="30" fill="#274c91" fill-opacity=".5" stroke="#84eeff" stroke-opacity=".65"/>
+<path d="M602 54v92M556 100h92" stroke="#a2f3ff" stroke-opacity=".18"/>
+<g stroke="#60dfea" stroke-opacity=".5" fill="none"><path d="M200 384c100-76 510-93 655-5"/><path d="M220 405c144-89 477-79 620-4"/></g>
+<path d="M130 376l346-122 323 112-330 137z" fill="#0b1832" stroke="#6677c3" stroke-opacity=".7" stroke-width="2"/><path d="M130 376l339 112v22L130 397z" fill="#13274f" stroke="#647bca" stroke-opacity=".55"/><path d="M469 488l330-122v21L469 510z" fill="#0a1936" stroke="#566dc2" stroke-opacity=".55"/><path d="M145 375l330-114 307 106-314 119z" fill="url(#platform)" stroke="#91a0f0" stroke-opacity=".72" stroke-width="2"/><path d="M171 375l304-99 278 96-289 108z" stroke="#64dfe9" stroke-width="3" stroke-opacity=".9"/><path d="M200 374l275-84 239 83-254 93z" fill="#12264b" stroke="#7584dc" stroke-opacity=".5"/>
+<path d="M280 316l70-26 1-105-71 25z" fill="url(#glass)" stroke="#a6b2ff" stroke-opacity=".65"/><path d="M280 210l71-25 15 13-70 26z" fill="url(#metal)"/><path d="M296 222v76M316 215v76M337 208v76" stroke="#69dfe8" stroke-opacity=".9" stroke-width="6"/>
+<path d="M365 315l110-39V90l-110 39z" fill="url(#glass)" stroke="#ccd4ff" stroke-opacity=".8"/><path d="M365 129l110-39 19 17-110 39z" fill="url(#metal)"/><path d="M378 140v161M405 130v162M432 120v164M458 111v165" stroke="#75e7f2" stroke-opacity=".9" stroke-width="8"/><path d="M365 172l110-39M365 213l110-39M365 254l110-39" stroke="#c0c7ff" stroke-opacity=".35"/>
+<path d="M500 316l88-31V180l-88 31z" fill="url(#glass)" stroke="#aab7ff" stroke-opacity=".7"/><path d="M500 211l88-31 14 12-88 31z" fill="url(#metal)"/><path d="M516 221v75M544 211v76M570 201v77" stroke="#6de2ee" stroke-opacity=".85" stroke-width="7"/><path d="M500 246l88-31M500 278l88-31" stroke="#bdcaff" stroke-opacity=".3"/>
+<path d="M420 325l33-12v-63l-33 12z" fill="#091a37" stroke="#5de8ef" stroke-width="2"/><path d="M436 318v-54" stroke="#a1f9ff" stroke-width="4"/><path d="M400 354l53-19 42 15-49 19z" fill="#8b92dc" fill-opacity=".6"/><path d="M405 362l41 15 44-16" stroke="#83e9f2" stroke-width="3"/>
+<path d="M220 355q15-28 30 0q15-36 30 0" stroke="#67e3f1" stroke-width="3" stroke-linecap="round" opacity=".85"/><circle cx="245" cy="350" r="5" fill="#a8f7ff" filter="url(#soft)"/>
+<g fill="#62d8c5"><circle cx="210" cy="365" r="5"/><circle cx="260" cy="375" r="5"/><circle cx="625" cy="354" r="5"/><circle cx="680" cy="370" r="5"/></g>
+<g fill="#8ee6e5" opacity=".8"><path d="M207 365l-4-27 14-14 13 13-5 29z"/><path d="M650 365l-3-31 16-15 15 13-5 31z"/><path d="M680 374l-2-23 12-12 12 12-4 25z"/></g>
+<g fill="#75e4ef" opacity=".8"><circle cx="135" cy="230" r="3"/><circle cx="760" cy="166" r="3"/><circle cx="820" cy="298" r="2"/><circle cx="180" cy="300" r="2"/></g>
+</svg>
